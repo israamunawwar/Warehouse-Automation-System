@@ -1,3 +1,7 @@
+-- بيانات تجريبية (شغّلها بعد DB.sql أو migration_01.sql)
+USE [WarehouseDB]
+GO
+
 -- Cabinets
 INSERT INTO Cabinets (CabinetName)
 VALUES 
@@ -41,18 +45,11 @@ VALUES
 
 
 
-SELECT OBJECT_DEFINITION(OBJECT_ID('CK_Transactions_ActionType'));
-
-ALTER TABLE Transactions
-DROP CONSTRAINT CK_Transactions_ActionType;
-
-ALTER TABLE Transactions
-ADD CONSTRAINT CK_Transactions_ActionType
-CHECK (ActionType IN ('Reserve', 'Withdraw'));
-
-select * from Cabinets;
-select * from Boxes;
-select * from Items;
-select * from Shelves;
-select * from Trainers;
-select * from Transactions;
+-- استعلامات للتحقق
+SELECT * FROM Cabinets;
+SELECT * FROM Shelves;
+SELECT * FROM Boxes;
+SELECT * FROM Items;
+SELECT * FROM Trainers;
+SELECT * FROM Transactions;
+SELECT * FROM vw_ItemAvailability;
